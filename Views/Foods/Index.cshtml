@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Resturant.Models.Food>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    #card {
+        padding: 5px;
+        margin: 10px;
+    }
+    #title{
+        direction:rtl;
+    }
+</style>
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+        
+        <div class="container d-flex flex-wrap "  >
+            @foreach (var item in Model)
+            {
+
+                <a asp-action="Details" asp-route-id="@item.Id" >
+                    <div class="card alert-warning" id="card">
+                       <img class="card-img-top   "  src="@(item.PhotoLocation)" height=" 175" width="175" alt="@item.Name"/>
+                       
+                            <p class=" card-title" id="title">@item.Name</p>
+                        <p class="card-footer" >قیمت: @item.Price  تومان</p>
+
+
+</div>
+
+
+</a>
+            }
+           </div> 
+
